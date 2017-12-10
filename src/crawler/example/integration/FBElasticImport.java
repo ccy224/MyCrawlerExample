@@ -18,7 +18,7 @@ public class FBElasticImport {
     // 2017-09-02
     static long start = 1512777600;
     // 往前抓抓取日期數
-    static int days = 10;
+    static int days = 100;
     // 每日抓取文章上限 (上限1000)
     static int maxPosts = 10;
     static String access_token = "EAACEdEose0cBAPAA4pGe1SVW65tCIBYZAFD0MPLXcgJbEDqlsSrqoPK9TUMDDg1laZChJ673HB8qzFmXcrfYIN0rzmLMN9K9VnH9egJTCw2OxgJlW0266IqiIA1zfQBQ1kCy8jEJw8eLVweOtZBo3gsai2vtsOZB2lq1GsxZAqSpA7fczZBpwX9TGD0UNlZCy0ZD";
@@ -28,7 +28,7 @@ public class FBElasticImport {
         for (long datatime = start ; datatime > start-86400*days ;datatime-=86400) {
             String uri =
                     "https://graph.facebook.com/v2.6"
-                            + "/"+pageName +"/posts?fields=message,comments.limit(0).summary(true),likes.limit(0).summary(true),created_time&since="+(datatime-3600*8)+"&until="+datatime+"&limit="+maxPosts
+                            + "/"+pageName +"/posts?fields=message,comments.limit(0).summary(true),likes.limit(0).summary(true),created_time&since="+(datatime-3600*24)+"&until="+datatime+"&limit="+maxPosts
                             + "&access_token="+access_token;
 
 
